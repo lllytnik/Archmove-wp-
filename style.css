@@ -75,9 +75,9 @@ a {
     justify-content: space-between;
 }
 
-.header__nav {
-    margin-left: 60px;
-}
+/* .header__nav {
+    margin-left: 600px;
+} */
 
 .nav__list {
     display: flex;

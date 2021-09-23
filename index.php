@@ -1,17 +1,15 @@
 <?php get_header(); ?>
     <section class="main">
         <div class="container">
-            <h1 class="main__title">Build Your
-                Dream <span class="main__title-active">House</span> </h1>
+            <h1 class="main__title"><?php the_field('main__title'); ?><span class="main__title-active"><?php the_field('main__title-active'); ?></span></h1>
             <div class="main__inner">
                 <div class="main__wrapper">
                     <p class="main__text">
-                        The first and most trusted marketplace of design & build house in The World. 100% guaranteed
-                        Build safe, comfortable and transparent with a project management for the best result
+                    <?php the_field('main__text'); ?>
                     </p>
                     <button class="main__btn">Free Consultation</button>
                 </div>
-                <img class="main__img" src="<?php echo IMG_DIR;?>/main/rectangle.jpg" alt="photo">
+                <img class="main__img" src="<?php the_field('main__img'); ?>" alt="photo">
             </div>
         </div>
     </section>
@@ -41,30 +39,20 @@
             <div class="needs__inner">
                 <img class="needs__img" src="<?php echo IMG_DIR;?>/needs/img.png" alt="">
                 <div class="needs__wrapper">
+
+                    <?php foreach(getFeatures() as $feature): ?>
+
                     <div class="needs__feature feature">
-                        <img class="feature__img" src="<?php echo IMG_DIR;?>/needs/icon-1.svg" alt="">
+                        <img class="feature__img" src="<?php echo $feature['img']?>" alt="">
                         <div class="feature__wrapper">
-                            <h3 class="feature__title">100% guaranteed project completion</h3>
-                            <p class="feature__text">Build safe, comfortable and transparent with a project management
-                                application with a joint account.</p>
+                            <h3 class="feature__title"><?php echo $feature['title']?></h3>
+                            <p class="feature__text"><?php echo $feature['text']?></p>
+                            <i><?php echo $feature['add_description']?></i>
                         </div>
                     </div>
-                    <div class="needs__feature feature">
-                        <img class="feature__img" src="<?php echo IMG_DIR;?>/needs/icon-2.svg" alt="">
-                        <div class="feature__wrapper">
-                            <h3 class="feature__title">No additional fees</h3>
-                            <p class="feature__text">There are no hidden costs. The value of the offer you get is the
-                                value you paid.</p>
-                        </div>
-                    </div>
-                    <div class="needs__feature feature">
-                        <img class="feature__img" src="<?php echo IMG_DIR;?>/needs/icon-3.svg" alt="">
-                        <div class="feature__wrapper">
-                            <h3 class="feature__title">Get escort from the Team</h3>
-                            <p class="feature__text">Monitor reports from the Arsitag team who check directly in the
-                                field.</p>
-                        </div>
-                    </div>
+
+                    <?php endforeach; ?>
+
                     <button class="needs__btn">CONSULTATION</button>
                 </div>
             </div>
